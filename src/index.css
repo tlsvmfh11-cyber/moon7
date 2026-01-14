@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Urban Chic / Deep Navy Palette */
+  --color-navy-950: #020c1b;
+  --color-navy-900: #0a192f;
+  --color-navy-800: #112240;
+  --color-navy-700: #233554;
+  
+  --color-slate-gray: #8892b0;
+  --color-platinum: #e6f1ff;
+  --color-accent-teal: #64ffda;
+  
+  --font-display: 'Noto Sans KR', sans-serif;
+  --font-sans: 'Noto Sans KR', sans-serif;
+
+
+  --animate-fade-up: fadeUp 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  --animate-slide-in: slideIn 0.5s ease-out forwards;
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-navy-950);
+  }
+  
+  body {
+    @apply text-platinum antialiased overflow-x-hidden font-sans;
+    background-color: var(--color-navy-950);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-platinum;
+  }
+  
+  p {
+    @apply text-slate-gray;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-teal);
+    color: var(--color-navy-900);
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background-color: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #233554;
+  }
+  
+  .card-hover {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --tw-shadow-color: rgba(100, 255, 218, 0.1);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+  
+  .text-gradient-silver {
+    background: linear-gradient(to right, #e6f1ff, #8892b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

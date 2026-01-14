@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: Update with actual domain
-# Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://daltosolo.com/sitemap.xml
